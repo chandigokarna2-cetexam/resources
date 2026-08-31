@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ಸ್ಪರ್ಧಾತ್ಮಕ ಪರೀಕ್ಷಾ ಸಂಪನ್ಮೂಲಗಳು | Next-Gen CET Portal</title>
+    <title>ಸ್ಪರ್ಧಾತ್ಮಕ ಪರೀಕ್ಷಾ ಸಂಪನ್ಮೂಲಗಳು</title>
     <!-- Google Fonts & Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --bg-base: #060913;
+            --bg-base: #040711;
             --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-hover: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
             --neon-blue: #00f2fe;
             --neon-pink: #ff007f;
             --neon-yellow: #ffb703;
@@ -34,42 +33,18 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* ಲ್ಯಾಪ್ಟಾಪ್ ಸ್ಕ್ರೀನ್‌ಗೆ ನಿಖರ ಫಿಟ್ */
+            overflow: hidden;
             position: relative;
         }
 
-        /* ಹಿಂಬದಿಯ ನಿಯಾನ್ ಗ್ಲೋಗಳು */
-        .glow-1 {
-            position: absolute;
-            top: -100px;
-            left: 20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 0, 128, 0.18) 0%, transparent 70%);
-            filter: blur(80px);
-            z-index: 0;
-            pointer-events: none;
-        }
-        .glow-2 {
-            position: absolute;
-            bottom: -50px;
-            right: 15%;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(0, 242, 254, 0.18) 0%, transparent 70%);
-            filter: blur(80px);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* 1. ಟಾಪ್ ಹೆಡರ್ ಮತ್ತು ಬೃಹತ್ ಟೈಟಲ್ */
+        /* 1. TOP HEADER & TITLE */
         header {
             position: relative;
-            z-index: 2;
+            z-index: 100;
             text-align: center;
-            padding: 14px 20px 10px;
-            background: rgba(6, 9, 19, 0.7);
-            backdrop-filter: blur(20px);
+            padding: 10px 24px 8px;
+            background: rgba(4, 7, 17, 0.92);
+            backdrop-filter: blur(25px);
             border-bottom: 1px solid var(--glass-border);
             display: flex;
             flex-direction: column;
@@ -78,25 +53,26 @@
         }
 
         .hero-title h1 {
-            font-size: 1.85rem;
+            font-size: 2.2rem;
             font-weight: 900;
-            letter-spacing: 0.5px;
-            background: linear-gradient(90deg, #ff007f, #7928ca, #00f2fe, #ffb703);
+            letter-spacing: 0.8px;
+            background: linear-gradient(90deg, #ff007f, #b5179e, #00f2fe, #ffb703, #00ff87);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientShift 6s ease infinite;
-            text-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+            animation: gradientShift 5s ease infinite;
+            filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.35));
+            line-height: 1.2;
         }
 
         .hero-title span {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #38bdf8;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 800;
             display: block;
-            margin-top: 1px;
+            margin-top: 2px;
         }
 
         @keyframes gradientShift {
@@ -105,163 +81,303 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ಟೈಟಲ್ ಕೆಳಗಿನ ಮೇನ್ ಬಟನ್‌ಗಳು */
+        /* FULL WIDTH MENU BAR */
         .main-menu-bar {
+            width: 100%;
+            max-width: 1440px;
             display: flex;
             gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-btn, .dropdown-container {
+            flex: 1;
+            display: flex;
         }
 
         .menu-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            padding: 6px 16px;
-            border-radius: 30px;
-            color: #e2e8f0;
+            width: 100%;
+            border: none;
+            padding: 11px 8px;
+            border-radius: 12px;
+            color: #ffffff;
             text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 700;
+            font-size: 0.94rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+            white-space: nowrap;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            filter: brightness(1.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+        }
+
+        .btn-home { background: linear-gradient(135deg, #00b4db, #0083b0); }
+        .btn-recruitment { background: linear-gradient(135deg, #ff0844, #ff4e50); }
+        .btn-tet { background: linear-gradient(135deg, #f857a6, #ff5858); }
+        .btn-kpsc { background: linear-gradient(135deg, #11998e, #38ef7d); color: #032014; }
+        .btn-upsc { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+        .btn-ai { background: linear-gradient(135deg, #f7971e, #ffd200); color: #221300; }
+        .btn-about { background: linear-gradient(135deg, #8A2387, #E94057); }
+
+        /* 🔥 RECRUITMENT DROPDOWN WITH EXACT LINKS 🔥 */
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 15, 30, 0.98);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            padding: 10px;
+            width: 330px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+            z-index: 9999;
+            flex-direction: column;
+            gap: 8px;
+            backdrop-filter: blur(20px);
+        }
+
+        .dropdown-menu.show {
+            display: flex;
+            animation: fadeInDown 0.25s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translate(-50%, -10px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+
+        .drop-item {
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 0.92rem;
+            font-weight: 800;
+            text-align: center;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 7px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
 
-        .menu-btn:hover, .menu-btn.active {
-            background: linear-gradient(135deg, #00f2fe, #4facfe);
-            color: #000;
-            font-weight: 800;
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
-            border-color: transparent;
-            transform: translateY(-2px);
+        .drop-item:hover {
+            transform: scale(1.03);
+            filter: brightness(1.15);
         }
 
-        /* 2. THREE COLUMN DASHBOARD */
+        .d-hstr { background: #f59e0b; }
+        .d-gpstr { background: #e11d48; }
+        .d-syllabus { background: #3b82f6; }
+        .d-orders { background: #0d9488; }
+        .d-pdf { background: #ea580c; }
+        .d-cet { background: #16a34a; }
+        .d-tet { background: #eab308; color: #1e293b; }
+
+        /* DASHBOARD LAYOUT */
         .dashboard-container {
             position: relative;
             z-index: 2;
             display: grid;
-            grid-template-columns: 310px 1fr 270px;
-            gap: 15px;
-            padding: 12px 18px;
+            grid-template-columns: 320px 1fr 280px;
+            gap: 16px;
+            padding: 12px 20px;
             flex-grow: 1;
-            height: calc(100vh - 120px);
+            height: calc(100vh - 140px);
             overflow: hidden;
         }
 
-        /* Scrollbars */
-        .sidebar-left::-webkit-scrollbar, .middle-screen::-webkit-scrollbar, .ticker-wrap::-webkit-scrollbar {
-            width: 4px;
+        .sidebar-left::-webkit-scrollbar, .middle-screen::-webkit-scrollbar {
+            width: 5px;
         }
         .sidebar-left::-webkit-scrollbar-thumb, .middle-screen::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
         }
 
-        /* LEFT SIDEBAR: 10 Colorful Grids */
+        /* 2. LEFT SIDEBAR */
         .sidebar-left {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 10px;
+            border-radius: 18px;
+            padding: 12px;
             overflow-y: auto;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            gap: 9px;
-            backdrop-filter: blur(15px);
+            gap: 11px;
+            backdrop-filter: blur(20px);
         }
 
         .category-card {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .category-card:hover {
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            transform: translateY(-1px);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            position: relative;
         }
 
         .category-header {
-            padding: 9px 14px;
+            padding: 13px 16px;
             color: #ffffff;
-            font-weight: 700;
-            font-size: 0.85rem;
+            font-weight: 800;
+            font-size: 1rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             user-select: none;
-            transition: 0.2s;
+            border-radius: 12px;
+            transition: all 0.25s ease;
         }
 
-        .category-header i.fa-plus, .category-header i.fa-minus {
-            font-size: 0.75rem;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 4px 6px;
+        .category-header.active-item {
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.9);
+            border: 2px solid #00f2fe;
+        }
+
+        .category-header .title-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .category-header:hover {
+            filter: brightness(1.15);
+        }
+
+        .category-header i.fa-plus {
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 5px 8px;
             border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            flex-shrink: 0;
+            margin-left: 8px;
+            transition: all 0.3s ease;
         }
 
-        /* 10 Vibrant Neon/Gloss Gradients */
-        .g-1 { background: linear-gradient(135deg, #ff0844, #ffb199); }
-        .g-2 { background: linear-gradient(135deg, #6a11cb, #2575fc); }
+        .category-header.active-item i.fa-plus {
+            background: #00f2fe;
+            color: #000;
+            box-shadow: 0 0 10px #00f2fe;
+        }
+
+        /* 10 Gradients */
+        .g-1 { background: linear-gradient(135deg, #ff0844, #ff5370); }
+        .g-2 { background: linear-gradient(135deg, #4776e6, #8e54e9); }
         .g-3 { background: linear-gradient(135deg, #0ba360, #3cba92); }
         .g-4 { background: linear-gradient(135deg, #f857a6, #ff5858); }
         .g-5 { background: linear-gradient(135deg, #00c6ff, #0072ff); }
         .g-6 { background: linear-gradient(135deg, #f77062, #fe5196); }
-        .g-7 { background: linear-gradient(135deg, #f12711, #f5af19); color: #fff; }
-        .g-8 { background: linear-gradient(135deg, #8a2387, #e94057, #f27121); }
-        .g-9 { background: linear-gradient(135deg, #134e5e, #71b280); }
+        .g-7 { background: linear-gradient(135deg, #f12711, #f5af19); }
+        .g-8 { background: linear-gradient(135deg, #8a2387, #e94057); }
+        .g-9 { background: linear-gradient(135deg, #0575E6, #00F260); }
         .g-10 { background: linear-gradient(135deg, #b224ef, #7579ff); }
 
-        .subcategory-list {
+        /* 🔥 GLOBAL FIXED POPUP (ಸ್ಕ್ರೀನ್ ಅಂಚನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸರಿಪಡಿಸುವ ವಿನ್ಯಾಸ) 🔥 */
+        #globalTreePopup {
             display: none;
-            background: rgba(10, 14, 28, 0.95);
-            padding: 6px 10px;
-            list-style: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            z-index: 9999999 !important;
+            align-items: center;
+            pointer-events: auto;
         }
 
-        .subcategory-list.open {
-            display: block;
+        #globalTreePopup.open {
+            display: flex;
+            animation: fadeIn 0.2s ease;
         }
 
-        .subcategory-list li {
-            padding: 7px 10px;
-            margin: 4px 0;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #cbd5e1;
+        .branch-stem {
+            width: 40px;
+            height: 4px;
+            background: #00f2fe;
+            box-shadow: 0 0 12px #00f2fe;
+            flex-shrink: 0;
+        }
+
+        .branch-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-left: 4px solid #00f2fe;
+            box-shadow: -2px 0 12px rgba(0, 242, 254, 0.7);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .branch-node {
+            padding: 10px 20px;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 800;
             cursor: pointer;
-            border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: all 0.2s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 242, 254, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            white-space: nowrap;
         }
 
-        .subcategory-list li:hover {
-            background: rgba(0, 242, 254, 0.12);
-            color: var(--neon-blue);
-            padding-left: 14px;
+        .branch-node::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            width: 20px;
+            height: 4px;
+            background: #00f2fe;
+            box-shadow: 0 0 8px #00f2fe;
         }
 
-        /* MIDDLE SCREEN (Ultra Modern Hub) */
+        .branch-node:hover {
+            transform: translateX(6px) scale(1.05);
+            filter: brightness(1.3);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
+        }
+
+        .bn-1 { background: linear-gradient(135deg, #0052D4, #4364F7); }
+        .bn-2 { background: linear-gradient(135deg, #FF416C, #FF4B2B); }
+        .bn-3 { background: linear-gradient(135deg, #11998e, #38ef7d); color: #022013; }
+
+        /* 3. MIDDLE SCREEN */
         .middle-screen {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 18px;
+            border-radius: 18px;
+            padding: 20px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            backdrop-filter: blur(15px);
+            gap: 16px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 1;
         }
 
         .middle-header {
@@ -269,12 +385,12 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 10px;
+            padding-bottom: 12px;
         }
 
         .middle-header h2 {
-            font-size: 1.18rem;
-            font-weight: 800;
+            font-size: 1.25rem;
+            font-weight: 900;
             color: #fff;
             display: flex;
             align-items: center;
@@ -282,124 +398,136 @@
         }
 
         .search-glass {
-            padding: 7px 14px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             outline: none;
             color: #fff;
-            font-size: 0.8rem;
-            width: 200px;
-            transition: 0.3s;
+            font-size: 0.88rem;
+            width: 220px;
         }
-        .search-glass:focus {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--neon-yellow);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 5px;
         }
 
         .resource-cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 14px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
         }
 
         .res-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            border-radius: 14px;
-            padding: 14px;
-            position: relative;
-            transition: all 0.3s;
+            border-radius: 16px;
+            padding: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .res-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 242, 254, 0.4);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
-            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-6px) scale(1.02);
+            filter: brightness(1.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
         }
+
+        .rc-pdf { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); border-left: 5px solid #00f2fe; }
+        .rc-video { background: linear-gradient(135deg, #451a03 0%, #78350f 100%); border-left: 5px solid #ffb703; }
+        .rc-test { background: linear-gradient(135deg, #022c22 0%, #064e3b 100%); border-left: 5px solid #38ef7d; }
+        .rc-hstr { background: linear-gradient(135deg, #4a044e 0%, #701a75 100%); border-left: 5px solid #f857a6; }
 
         .res-type-badge {
             align-self: flex-start;
-            font-size: 0.68rem;
+            font-size: 0.74rem;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 20px;
-            background: rgba(0, 242, 254, 0.15);
-            color: var(--neon-blue);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-            margin-bottom: 8px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
+        .badge-pdf { color: var(--neon-blue); }
+        .badge-video { color: var(--neon-yellow); }
+        .badge-test { color: #38ef7d; }
+        .badge-hstr { color: #ff007f; }
+
         .res-card h4 {
-            font-size: 0.92rem;
-            margin-bottom: 6px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 8px;
             color: #fff;
             line-height: 1.35;
         }
 
         .res-card p {
-            font-size: 0.76rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            line-height: 1.45;
+            font-size: 0.84rem;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+            line-height: 1.5;
         }
 
         .btn-action {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            background: linear-gradient(135deg, #00f2fe, #4facfe);
-            color: #020617;
-            padding: 7px 12px;
-            font-size: 0.78rem;
+            gap: 8px;
+            padding: 10px 16px;
+            font-size: 0.88rem;
             font-weight: 800;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
-            transition: 0.2s;
+            color: #000;
+            transition: all 0.2s;
         }
 
-        .btn-action:hover {
-            box-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
-            transform: scale(1.02);
-        }
+        .btn-pdf { background: linear-gradient(135deg, #00f2fe, #4facfe); }
+        .btn-video { background: linear-gradient(135deg, #ffb703, #fb8500); }
+        .btn-test { background: linear-gradient(135deg, #11998e, #38ef7d); }
+        .btn-hstr { background: linear-gradient(135deg, #ff0844, #ff5370); color: #fff; }
 
-        /* RIGHT SIDEBAR: Live Auto-Scrolling Ticker */
+        /* RIGHT SIDEBAR */
         .sidebar-right {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 12px;
+            border-radius: 18px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
             overflow: hidden;
-            position: relative;
         }
 
         .sidebar-right h3 {
-            font-size: 0.88rem;
+            font-size: 0.94rem;
             font-weight: 800;
             display: flex;
             align-items: center;
             gap: 8px;
             color: #fff;
             border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 8px;
+            padding-bottom: 10px;
             margin-bottom: 10px;
         }
 
-        /* Auto-scroll container */
         .ticker-wrap {
             height: 100%;
             overflow: hidden;
-            position: relative;
         }
 
         .ticker-content {
@@ -410,7 +538,7 @@
         }
 
         .ticker-wrap:hover .ticker-content {
-            animation-play-state: paused; /* ಮೌಸ್ ಇಟ್ಟಾಗ ಸ್ಕ್ರೋಲಿಂಗ್ ನಿಲ್ಲುತ್ತದೆ */
+            animation-play-state: paused;
         }
 
         @keyframes scrollUp {
@@ -421,261 +549,227 @@
         .mini-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--glass-border);
-            border-left: 3px solid var(--neon-blue);
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 0.76rem;
-            transition: 0.2s;
-        }
-
-        .mini-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-left-color: var(--neon-pink);
+            border-left: 4px solid var(--neon-blue);
+            border-radius: 12px;
+            padding: 11px;
+            font-size: 0.82rem;
         }
 
         .mini-card .date {
-            font-size: 0.68rem;
+            font-size: 0.72rem;
             color: var(--neon-yellow);
-            font-weight: 700;
+            font-weight: 800;
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }
 
         .mini-card p {
             color: #e2e8f0;
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.35;
         }
     </style>
 </head>
 <body>
 
-    <!-- Ambient Glowing Spheres -->
-    <div class="glow-1"></div>
-    <div class="glow-2"></div>
+    <!-- GLOBAL FIXED OVERLAY TREE POPUP -->
+    <div id="globalTreePopup">
+        <div class="branch-stem"></div>
+        <div class="branch-vertical" id="globalBranchNodes"></div>
+    </div>
 
-    <!-- 1. TOP TITLE & MENU BUTTONS -->
     <header>
         <div class="hero-title">
             <h1>ಸ್ಪರ್ಧಾತ್ಮಕ ಪರೀಕ್ಷಾ ಸಂಪನ್ಮೂಲಗಳು</h1>
             <span>Resources For All Competitive Exams • Future Portal</span>
         </div>
+        
         <nav class="main-menu-bar">
-            <a href="#" class="menu-btn active"><i class="fa-solid fa-house"></i> ಮುಖಪುಟ</a>
-            <a href="#" class="menu-btn"><i class="fa-solid fa-graduation-cap"></i> ಸಿಇಟಿ / ಜಿಪಿಟಿಆರ್</a>
-            <a href="#" class="menu-btn"><i class="fa-solid fa-file-shield"></i> ಟಿಇಟಿ (TET) ಕಾರ್ನರ್</a>
-            <a href="#" class="menu-btn"><i class="fa-solid fa-file-pdf"></i> ಪ್ರಶ್ನೆ ಪತ್ರಿಕೆಗಳು</a>
-            <a href="#" class="menu-btn"><i class="fa-solid fa-play"></i> ವೀಡಿಯೊ ಕ್ಲಾಸ್</a>
-            <a href="#" class="menu-btn"><i class="fa-solid fa-info-circle"></i> ನಮ್ಮ ಬಗ್ಗೆ</a>
+            <a href="#" class="menu-btn btn-home" onclick="renderRecentUploads('ಮುಖಪುಟ: ಇತ್ತೀಚಿನ ಸಂಪನ್ಮೂಲಗಳು')">
+                <i class="fa-solid fa-house"></i> ಮುಖಪುಟ
+            </a>
+
+            <!-- 🔥 ಶಿಕ್ಷಕರ ನೇಮಕಾತಿ ಪರೀಕ್ಷೆ - ನೇರ ಲಿಂಕ್‌ಗಳು 🔥 -->
+            <div class="dropdown-container">
+                <button class="menu-btn btn-recruitment" onclick="toggleDropdown(event)">
+                    <i class="fa-solid fa-chalkboard-user"></i> ಶಿಕ್ಷಕರ ನೇಮಕಾತಿ ಪರೀಕ್ಷೆ <i class="fa-solid fa-chevron-down" style="font-size:0.75rem; margin-left:4px;"></i>
+                </button>
+                <div class="dropdown-menu" id="recruitmentDropdown">
+                    <a href="https://chandugokarna-bit.github.io/gpt-teachers-resources/hstrnotifications.html" target="_blank" class="drop-item d-hstr">
+                        <i class="fa-solid fa-bullhorn"></i> HSTR NOTIFICATIONS 2026
+                    </a>
+                    <a href="https://chandugokarna-bit.github.io/gpt-teachers-resources/gpstrnotifications.html" target="_blank" class="drop-item d-gpstr">
+                        <i class="fa-solid fa-bullhorn"></i> GPSTR NOTIFICATIONS 2026
+                    </a>
+                    <a href="https://chandugokarna-bit.github.io/gpt-teachers-resources/syllabus.html" target="_blank" class="drop-item d-syllabus">
+                        <i class="fa-solid fa-book"></i> ಪಠ್ಯಕ್ರಮ
+                    </a>
+                    <a href="https://chandugokarna-bit.github.io/gpt-teachers-resources/pdf.html" target="_blank" class="drop-item d-orders">
+                        <i class="fa-solid fa-landmark"></i> ಆದೇಶಗಳು
+                    </a>
+                    <a href="https://chandugokarna-bit.github.io/gpt-teachers-resources/pdf.html" target="_blank" class="drop-item d-pdf">
+                        <i class="fa-solid fa-file-pdf"></i> ಪಿಡಿಎಫ್ ಸಂಪನ್ಮೂಲಗಳು
+                    </a>
+                    <a href="https://chandugokarna-bit.github.io/gpt-teachers-resources/modelpapers.html" target="_blank" class="drop-item d-cet">
+                        <i class="fa-solid fa-file-signature"></i> CET ಪ್ರಶ್ನೆ ಪತ್ರಿಕೆಗಳು
+                    </a>
+                    <a href="https://chandugokarna-bit.github.io/gpt-teachers-resources/modelpapers.html" target="_blank" class="drop-item d-tet">
+                        <i class="fa-solid fa-file-circle-question"></i> ಟಿಇಟಿ ಪ್ರಶ್ನೆ ಪತ್ರಿಕೆಗಳು
+                    </a>
+                </div>
+            </div>
+
+            <a href="#" class="menu-btn btn-tet" onclick="renderRecentUploads('TET ಕಾರ್ನರ್: ಸಂಪನ್ಮೂಲಗಳು')">
+                <i class="fa-solid fa-file-pen"></i> TET ಕಾರ್ನರ್
+            </a>
+
+            <a href="#" class="menu-btn btn-kpsc" onclick="renderRecentUploads('KPSC ಪರೀಕ್ಷಾ ಸಂಪನ್ಮೂಲಗಳು')">
+                <i class="fa-solid fa-award"></i> KPSC
+            </a>
+
+            <a href="#" class="menu-btn btn-upsc" onclick="renderRecentUploads('UPSC ಪರೀಕ್ಷಾ ಸಂಪನ್ಮೂಲಗಳು')">
+                <i class="fa-solid fa-shield-halved"></i> UPSC
+            </a>
+
+            <a href="#" class="menu-btn btn-ai" onclick="renderRecentUploads('AI ಸ್ಮಾರ್ಟ್ ವಿಡಿಯೋ ತರಗತಿಗಳು')">
+                <i class="fa-solid fa-robot"></i> AI ವಿಡಿಯೋಗಳು
+            </a>
+
+            <a href="#" class="menu-btn btn-about" onclick="renderRecentUploads('ನಮ್ಮ ಬಗ್ಗೆ (About Us)')">
+                <i class="fa-solid fa-circle-info"></i> ನಮ್ಮ ಬಗ್ಗೆ
+            </a>
         </nav>
     </header>
 
-    <!-- 2. MAIN 3-COLUMN DASHBOARD -->
     <div class="dashboard-container">
         
-        <!-- LEFT COLUMN: 10 Colorful Accordion Grids -->
+        <!-- LEFT COLUMN: 10 GRIDS -->
         <aside class="sidebar-left">
-            <!-- 1 -->
             <div class="category-card">
-                <div class="category-header g-1" onclick="toggleSub(this)">
-                    <span><i class="fa-solid fa-landmark"></i> ಸಮಾಜ ವಿಜ್ಞಾನ (Social)</span>
+                <div class="category-header g-1" onclick="openDirectBranch('social', this, event)">
+                    <span class="title-text"><i class="fa-solid fa-landmark"></i> ಸಮಾಜ ವಿಜ್ಞಾನ (Social)</span>
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <ul class="subcategory-list">
-                    <li onclick="loadContent('ಇತಿಹಾಸ (History) ಸಂಪನ್ಮೂಲಗಳು')"><i class="fa-solid fa-chevron-right"></i> ಇತಿಹಾಸ (History)</li>
-                    <li onclick="loadContent('ಭೂಗೋಳಶಾಸ್ತ್ರ (Geography) ನೋಟ್ಸ್')"><i class="fa-solid fa-chevron-right"></i> ಭೂಗೋಳಶಾಸ್ತ್ರ</li>
-                    <li onclick="loadContent('ರಾಜ್ಯಶಾಸ್ತ್ರ ಮತ್ತು ಅರ್ಥಶಾಸ್ತ್ರ')"><i class="fa-solid fa-chevron-right"></i> ರಾಜ್ಯಶಾಸ್ತ್ರ & ಅರ್ಥಶಾಸ್ತ್ರ</li>
-                </ul>
             </div>
 
-            <!-- 2 -->
             <div class="category-card">
-                <div class="category-header g-2" onclick="toggleSub(this)">
-                    <span><i class="fa-solid fa-flask"></i> ವಿಜ್ಞಾನ ಮತ್ತು ಗಣಿತ</span>
+                <div class="category-header g-2" onclick="openDirectBranch('science_math', this, event)">
+                    <span class="title-text"><i class="fa-solid fa-flask"></i> ವಿಜ್ಞಾನ ಮತ್ತು ಗಣಿತ</span>
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <ul class="subcategory-list">
-                    <li onclick="loadContent('ಭೌತ & ರಸಾಯನಶಾಸ್ತ್ರ')"><i class="fa-solid fa-chevron-right"></i> ಭೌತ & ರಸಾಯನಶಾಸ್ತ್ರ</li>
-                    <li onclick="loadContent('ಜೀವಶಾಸ್ತ್ರ (Biology) ನೋಟ್ಸ್')"><i class="fa-solid fa-chevron-right"></i> ಜೀವಶಾಸ್ತ್ರ</li>
-                    <li onclick="loadContent('ಗಣಿತ ಶಾರ್ಟ್‌ಕಟ್ ಟ್ರಿಕ್ಸ್')"><i class="fa-solid fa-chevron-right"></i> ಗಣಿತ ಸೂತ್ರಗಳು</li>
-                </ul>
             </div>
 
-            <!-- 3 -->
             <div class="category-card">
-                <div class="category-header g-3" onclick="toggleSub(this)">
-                    <span><i class="fa-solid fa-book-open"></i> ಕನ್ನಡ ಸಾಹಿತ್ಯ & ವ್ಯಾಕರಣ</span>
+                <div class="category-header g-3" onclick="openDirectBranch('kannada', this, event)">
+                    <span class="title-text"><i class="fa-solid fa-book-open"></i> ಕನ್ನಡ ಸಾಹಿತ್ಯ & ವ್ಯಾಕರಣ</span>
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <ul class="subcategory-list">
-                    <li onclick="loadContent('ಕನ್ನಡ ವ್ಯಾಕರಣ ದರ್ಪಣ')"><i class="fa-solid fa-chevron-right"></i> ಕನ್ನಡ ವ್ಯಾಕರಣ</li>
-                    <li onclick="loadContent('ಕವಿ ಪರಿಚಯ ಮತ್ತು ಕೃತಿಗಳು')"><i class="fa-solid fa-chevron-right"></i> ಕವಿ ಪರಿಚಯ & ಕೃತಿಗಳು</li>
-                </ul>
             </div>
 
-            <!-- 4 -->
             <div class="category-card">
-                <div class="category-header g-4" onclick="toggleSub(this)">
-                    <span><i class="fa-solid fa-brain"></i> ಮನೋವಿಜ್ಞಾನ (Psychology)</span>
+                <div class="category-header g-4" onclick="openDirectBranch('psychology', this, event)">
+                    <span class="title-text"><i class="fa-solid fa-brain"></i> ಮನೋವಿಜ್ಞಾನ (Psychology)</span>
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <ul class="subcategory-list">
-                    <li onclick="loadContent('ಶೈಕ್ಷಣಿಕ ಮನೋವಿಜ್ಞಾನ ಸಿದ್ಧಾಂತಗಳು')"><i class="fa-solid fa-chevron-right"></i> ಕಲಿಕಾ ಸಿದ್ಧಾಂತಗಳು</li>
-                    <li onclick="loadContent('ಮಕ್ಕಳ ವಿಕಾಸ ಮತ್ತು ಬೋಧನಾಶಾಸ್ತ್ರ')"><i class="fa-solid fa-chevron-right"></i> ಬೋಧನಾಶಾಸ್ತ್ರ (Pedagogy)</li>
-                </ul>
             </div>
 
-            <!-- 5 -->
             <div class="category-card">
-                <div class="category-header g-5" onclick="toggleSub(this)">
-                    <span><i class="fa-solid fa-language"></i> ಇಂಗ್ಲಿಷ್ ಭಾಷಾ ಸಂಪನ್ಮೂಲ</span>
+                <div class="category-header g-5" onclick="openDirectBranch('english', this, event)">
+                    <span class="title-text"><i class="fa-solid fa-language"></i> ಇಂಗ್ಲಿಷ್ ಭಾಷಾ ಸಂಪನ್ಮೂಲ</span>
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <ul class="subcategory-list">
-                    <li onclick="loadContent('English Grammar & Vocab')"><i class="fa-solid fa-chevron-right"></i> English Grammar</li>
-                    <li onclick="loadContent('Pedagogy of English')"><i class="fa-solid fa-chevron-right"></i> English Pedagogy</li>
-                </ul>
             </div>
 
-            <!-- 6 -->
             <div class="category-card">
-                <div class="category-header g-6" onclick="toggleSub(this)">
-                    <span><i class="fa-solid fa-newspaper"></i> ಪ್ರಚಲಿತ ಘಟನೆಗಳು (Current)</span>
+                <div class="category-header g-6" onclick="openDirectBranch('current_affairs', this, event)">
+                    <span class="title-text"><i class="fa-solid fa-newspaper"></i> ಪ್ರಚಲಿತ ಘಟನೆಗಳು (Current)</span>
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <ul class="subcategory-list">
-                    <li onclick="loadContent('ಮಾಸಿಕ ಪ್ರಚಲಿತ ಘಟನೆಗಳು')"><i class="fa-solid fa-chevron-right"></i> ಮಾಸಿಕ ಸಂಚಿಕೆಗಳು</li>
-                    <li onclick="loadContent('ರಾಷ್ಟ್ರೀಯ ಪ್ರಶಸ್ತಿಗಳು')"><i class="fa-solid fa-chevron-right"></i> ಪ್ರಮುಖ ಪ್ರಶಸ್ತಿಗಳು</li>
-                </ul>
             </div>
 
-            <!-- 7 -->
             <div class="category-card">
-                <div class="category-header g-7" onclick="toggleSub(this)">
-                    <span><i class="fa-solid fa-lightbulb"></i> ಸಾಮಾನ್ಯ ಜ್ಞಾನ (GK Booster)</span>
+                <div class="category-header g-7" onclick="openDirectBranch('gk', this, event)">
+                    <span class="title-text"><i class="fa-solid fa-lightbulb"></i> ಸಾಮಾನ್ಯ ಜ್ಞಾನ (GK Booster)</span>
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <ul class="subcategory-list">
-                    <li onclick="loadContent('ಕರ್ನಾಟಕ ಇತಿಹಾಸ ಮತ್ತು ಪರಂಪರೆ')"><i class="fa-solid fa-chevron-right"></i> ಕರ್ನಾಟಕ ಇತಿಹಾಸ</li>
-                    <li onclick="loadContent('ಭಾರತದ ಸಂವಿಧಾನ ಪ್ರಮುಖ ವಿಧಿಗಳು')"><i class="fa-solid fa-chevron-right"></i> ಭಾರತದ ಸಂವಿಧಾನ</li>
-                </ul>
             </div>
 
-            <!-- 8 -->
             <div class="category-card">
-                <div class="category-header g-8" onclick="toggleSub(this)">
-                    <span><i class="fa-solid fa-puzzle-piece"></i> ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯ (Reasoning)</span>
+                <div class="category-header g-8" onclick="openDirectBranch('mental_ability', this, event)">
+                    <span class="title-text"><i class="fa-solid fa-puzzle-piece"></i> ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯ (Reasoning)</span>
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <ul class="subcategory-list">
-                    <li onclick="loadContent('ರೀಸನಿಂಗ್ ಮತ್ತು ಕೋಡಿಂಗ್ ಟ್ರಿಕ್ಸ್')"><i class="fa-solid fa-chevron-right"></i> ತಾರ್ಕಿಕ ಸಾಮರ್ಥ್ಯ</li>
-                    <li onclick="loadContent('ಸಂಖ್ಯಾ ಸರಣಿ ಮತ್ತು ವೆನ್ ಚಿತ್ರಗಳು')"><i class="fa-solid fa-chevron-right"></i> ಸಂಖ್ಯಾ ಸರಣಿಗಳು</li>
-                </ul>
             </div>
 
-            <!-- 9 -->
             <div class="category-card">
-                <div class="category-header g-9" onclick="toggleSub(this)">
-                    <span><i class="fa-solid fa-folder-open"></i> ಹಳೆಯ ಪ್ರಶ್ನೆಪತ್ರಿಕೆಗಳು</span>
+                <div class="category-header g-9" onclick="openDirectBranch('old_papers', this, event)">
+                    <span class="title-text"><i class="fa-solid fa-folder-open"></i> ಹಳೆಯ ಪ್ರಶ್ನೆಪತ್ರಿಕೆಗಳು</span>
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <ul class="subcategory-list">
-                    <li onclick="loadContent('GPTR ಹಳೆಯ ಪ್ರಶ್ನೆಪತ್ರಿಕೆಗಳು')"><i class="fa-solid fa-chevron-right"></i> GPTR Question Papers</li>
-                    <li onclick="loadContent('KARTET ಮಾದರಿ ಪತ್ರಿಕೆಗಳು')"><i class="fa-solid fa-chevron-right"></i> TET Papers</li>
-                </ul>
             </div>
 
-            <!-- 10 -->
             <div class="category-card">
-                <div class="category-header g-10" onclick="toggleSub(this)">
-                    <span><i class="fa-solid fa-desktop"></i> ಕಂಪ್ಯೂಟರ್ ಜ್ಞಾನ (Computer)</span>
+                <div class="category-header g-10" onclick="openDirectBranch('computer', this, event)">
+                    <span class="title-text"><i class="fa-solid fa-desktop"></i> ಕಂಪ್ಯೂಟರ್ ಜ್ಞಾನ (Computer)</span>
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <ul class="subcategory-list">
-                    <li onclick="loadContent('ಮೂಲಭೂತ ಕಂಪ್ಯೂಟರ್ ಪರಿಕಲ್ಪನೆಗಳು')"><i class="fa-solid fa-chevron-right"></i> Basic Computer</li>
-                    <li onclick="loadContent('ಶಾರ್ಟ್‌ಕಟ್ ಕೀಗಳು & ಇಂಟರ್ನೆಟ್')"><i class="fa-solid fa-chevron-right"></i> Shortcuts & Internet</li>
-                </ul>
             </div>
         </aside>
 
-        <!-- MIDDLE COLUMN: Ultra Modern Screen -->
+        <!-- MIDDLE COLUMN: AUTOMATIC RECENT UPLOADS -->
         <main class="middle-screen">
             <div class="middle-header">
-                <h2 id="sectionTitle"><i class="fa-solid fa-atom" style="color:var(--neon-blue);"></i> ಸಮಾಜ ವಿಜ್ಞಾನ: ಇತಿಹಾಸ ಸಂಪನ್ಮೂಲಗಳು</h2>
+                <h2 id="sectionTitle"><i class="fa-solid fa-atom" style="color:var(--neon-blue);"></i> ಸಮಾಜ ವಿಜ್ಞಾನ: ಇತಿಹಾಸ</h2>
                 <input type="text" class="search-glass" placeholder="ಇಲ್ಲಿ ಹುಡುಕಿ...">
             </div>
 
+            <div class="section-subtitle">
+                <i class="fa-solid fa-bolt-lightning"></i> ಇತ್ತೀಚೆಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾದ ಫೈಲ್‌ಗಳು (Recent Uploads):
+            </div>
+
             <div class="resource-cards-grid" id="resourceContainer">
-                <div class="res-card">
-                    <span class="res-type-badge">PDF Note</span>
-                    <h4>ಪ್ರಾಚೀನ ಮತ್ತು ಮಧ್ಯಕಾಲೀನ ಭಾರತದ ಇತಿಹಾಸ</h4>
-                    <p>ಮೌರ್ಯರು, ಗುಪ್ತರು ಮತ್ತು ವಿಜಯನಗರ ಸಾಮ್ರಾಜ್ಯದ ಸಂಪೂರ್ಣ ಪರೀಕ್ಷಾ ನೋಟ್ಸ್.</p>
-                    <a href="#" class="btn-action"><i class="fa-solid fa-download"></i> ಡೌನ್‌ಲೋಡ್</a>
-                </div>
-
-                <div class="res-card">
-                    <span class="res-type-badge" style="color:#ffb703; border-color:rgba(255,183,3,0.3);">Smart Video</span>
-                    <h4>ಕರ್ನಾಟಕದ ಇತಿಹಾಸ ವಿಶೇಷ ಉಪನ್ಯಾಸ</h4>
-                    <p>ಕದಂಬರಿಂದ ಹಿಡಿದು ಕರ್ನಾಟಕದ ಏಕೀಕರಣದವರೆಗಿನ ವಿವರಣಾತ್ಮಕ ಆನ್‌ಲೈನ್ ಪಾಠ.</p>
-                    <a href="#" class="btn-action" style="background:linear-gradient(135deg, #ffb703, #fb8500); color:#000;"><i class="fa-solid fa-play"></i> ವೀಕ್ಷಿಸಿ</a>
-                </div>
-
-                <div class="res-card">
-                    <span class="res-type-badge" style="color:#38ef7d; border-color:rgba(56,239,125,0.3);">Mock Test</span>
-                    <h4>ಇತಿಹಾಸ ಟಾಪ್ 100 ಪ್ರಶ್ನೋತ್ತರಗಳು</h4>
-                    <p>ಸ್ಪರ್ಧಾತ್ಮಕ ಪರೀಕ್ಷೆಗಳಿಗೆ ಅತ್ಯಂತ ಪ್ರಮುಖವಾದ 100 ಪ್ರಶ್ನೆಗಳ ಆನ್‌ಲೈನ್ ಟೆಸ್ಟ್.</p>
-                    <a href="#" class="btn-action" style="background:linear-gradient(135deg, #11998e, #38ef7d); color:#000;"><i class="fa-solid fa-pen-nib"></i> ಟೆಸ್ಟ್ ಆರಂಭಿಸಿ</a>
-                </div>
-
-                <div class="res-card">
-                    <span class="res-type-badge">PDF Note</span>
-                    <h4>ಆಧುನಿಕ ಭಾರತ ಮತ್ತು ಸ್ವಾತಂತ್ರ್ಯ ಚಳವಳಿ</h4>
-                    <p>1857ರ ಕ್ರಾಂತಿ ಮತ್ತು ಪ್ರಮುಖ ನಾಯಕರ ಕೊಡುಗೆಗಳ ಕುರಿತಾದ ಕ್ವಿಕ್ ರಿವಿಷನ್ ನೋಟ್ಸ್.</p>
-                    <a href="#" class="btn-action"><i class="fa-solid fa-download"></i> ಡೌನ್‌ಲೋಡ್</a>
-                </div>
+                <!-- Dynamic Cards -->
             </div>
         </main>
 
-        <!-- RIGHT COLUMN: Auto-Scrolling Updates -->
+        <!-- RIGHT COLUMN -->
         <aside class="sidebar-right">
             <h3><i class="fa-solid fa-bolt" style="color: var(--neon-yellow);"></i> ಇತ್ತೀಚಿನ ಅಪ್‌ಡೇಟ್‌ಗಳು</h3>
 
             <div class="ticker-wrap">
-                <!-- ಸ್ಕ್ರೋಲಿಂಗ್ ಸರಾಗವಾಗಿ ಮುಂದುವರಿಯಲು ಎರಡು ಸೆಟ್ ಕಾರ್ಡ್‌ಗಳು -->
                 <div class="ticker-content">
                     <div class="mini-card">
-                        <span class="date">🔥 ಇಂದು ಪ್ರಕಟಣೆ</span>
-                        <p>KARTET ಪರೀಕ್ಷಾ ದಿನಾಂಕ ಶೀಘ್ರದಲ್ಲೇ ಪ್ರಕಟವಾಗಲಿದೆ.</p>
+                        <span class="date">🔥 HSTR 2026</span>
+                        <p>HSTR ಹೊಸ ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಅಧಿಸೂಚನೆ ಅಪ್‌ಡೇಟ್ ಲಭ್ಯವಿದೆ.</p>
                     </div>
                     <div class="mini-card">
-                        <span class="date">⚡ ಹೊಸ ನೋಟ್ಸ್</span>
-                        <p>2026 GPTR ಸಮಾಜ ವಿಜ್ಞಾನ ಮಾದರಿ ಕೀ-ಉತ್ತರಗಳು ಅಪ್‌ಲೋಡ್ ಆಗಿದೆ.</p>
+                        <span class="date">⚡ GPSTR 2026</span>
+                        <p>GPSTR ಸಮಾಜ ವಿಜ್ಞಾನ ಮಾದರಿ ಕೀ-ಉತ್ತರಗಳು ಅಪ್‌ಲೋಡ್ ಆಗಿದೆ.</p>
                     </div>
                     <div class="mini-card">
-                        <span class="date">✨ ವೀಡಿಯೊ ಕ್ಲಾಸ್</span>
-                        <p>ಸೈಕಾಲಜಿ ಹೊಸ ಕ್ಲಾಸ್‌ಗಳು ವೀಡಿಯೊ ವಿಭಾಗದಲ್ಲಿ ಲಭ್ಯ.</p>
+                        <span class="date">✨ TET ಅಪ್‌ಡೇಟ್</span>
+                        <p>KARTET ಹಿಂದಿನ ವರ್ಷಗಳ ಪ್ರಶ್ನೆಪತ್ರಿಕೆಗಳು ಲೈವ್ ಆಗಿದೆ.</p>
                     </div>
                     <div class="mini-card">
-                        <span class="date">📘 PDF ಅಪ್‌ಡೇಟ್</span>
-                        <p>ಈ ತಿಂಗಳ ಪ್ರಚಲಿತ ಘಟನೆಗಳ ಮ್ಯಾಗಜೀನ್ ಸೇರಿಸಲಾಗಿದೆ.</p>
+                        <span class="date">📘 PDF ನೋಟ್ಸ್</span>
+                        <p>ಶೈಕ್ಷಣಿಕ ಮನೋವಿಜ್ಞಾನ ಹ್ಯಾಂಡ್‌ಬುಕ್ ಸೇರಿಸಲಾಗಿದೆ.</p>
                     </div>
 
-                    <!-- ಲೂಪ್ ಮುಂದುವರಿಯಲು ನಕಲು ಸೆಟ್ -->
                     <div class="mini-card">
-                        <span class="date">🔥 ಇಂದು ಪ್ರಕಟಣೆ</span>
-                        <p>KARTET ಪರೀಕ್ಷಾ ದಿನಾಂಕ ಶೀಘ್ರದಲ್ಲೇ ಪ್ರಕಟವಾಗಲಿದೆ.</p>
+                        <span class="date">🔥 HSTR 2026</span>
+                        <p>HSTR ಹೊಸ ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಅಧಿಸೂಚನೆ ಅಪ್‌ಡೇಟ್ ಲಭ್ಯವಿದೆ.</p>
                     </div>
                     <div class="mini-card">
-                        <span class="date">⚡ ಹೊಸ ನೋಟ್ಸ್</span>
-                        <p>2026 GPTR ಸಮಾಜ ವಿಜ್ಞಾನ ಮಾದರಿ ಕೀ-ಉತ್ತರಗಳು ಅಪ್‌ಲೋಡ್ ಆಗಿದೆ.</p>
+                        <span class="date">⚡ GPSTR 2026</span>
+                        <p>GPSTR ಸಮಾಜ ವಿಜ್ಞಾನ ಮಾದರಿ ಕೀ-ಉತ್ತರಗಳು ಅಪ್‌ಲೋಡ್ ಆಗಿದೆ.</p>
                     </div>
                     <div class="mini-card">
-                        <span class="date">✨ ವೀಡಿಯೊ ಕ್ಲಾಸ್</span>
-                        <p>ಸೈಕಾಲಜಿ ಹೊಸ ಕ್ಲಾಸ್‌ಗಳು ವೀಡಿಯೊ ವಿಭಾಗದಲ್ಲಿ ಲಭ್ಯ.</p>
+                        <span class="date">✨ TET ಅಪ್‌ಡೇಟ್</span>
+                        <p>KARTET ಹಿಂದಿನ ವರ್ಷಗಳ ಪ್ರಶ್ನೆಪತ್ರಿಕೆಗಳು ಲೈವ್ ಆಗಿದೆ.</p>
                     </div>
                     <div class="mini-card">
-                        <span class="date">📘 PDF ಅಪ್‌ಡೇಟ್</span>
-                        <p>ಈ ತಿಂಗಳ ಪ್ರಚಲಿತ ಘಟನೆಗಳ ಮ್ಯಾಗಜೀನ್ ಸೇರಿಸಲಾಗಿದೆ.</p>
+                        <span class="date">📘 PDF ನೋಟ್ಸ್</span>
+                        <p>ಶೈಕ್ಷಣಿಕ ಮನೋವಿಜ್ಞಾನ ಹ್ಯಾಂಡ್‌ಬುಕ್ ಸೇರಿಸಲಾಗಿದೆ.</p>
                     </div>
                 </div>
             </div>
@@ -683,56 +777,158 @@
 
     </div>
 
-    <!-- JavaScript For Interactivity -->
     <script>
-        // ಸಬ್ ಫೋಲ್ಡರ್ ಪ್ಲಸ್/ಮೈನಸ್ ಟಾಗಲ್
-        function toggleSub(headerElement) {
-            const subList = headerElement.nextElementSibling;
-            const icon = headerElement.querySelector('i:last-child');
-            
-            if (subList.classList.contains('open')) {
-                subList.classList.remove('open');
-                icon.classList.remove('fa-minus');
-                icon.classList.add('fa-plus');
-            } else {
-                document.querySelectorAll('.subcategory-list').forEach(el => el.classList.remove('open'));
-                document.querySelectorAll('.category-header i:last-child').forEach(ic => {
-                    ic.classList.remove('fa-minus');
-                    ic.classList.add('fa-plus');
-                });
-                
-                subList.classList.add('open');
-                icon.classList.remove('fa-plus');
-                icon.classList.add('fa-minus');
+        const categoryData = {
+            social: {
+                title: "ಸಮಾಜ ವಿಜ್ಞಾನ",
+                subs: ["ಇತಿಹಾಸ (History)", "ಭೂಗೋಳಶಾಸ್ತ್ರ (Geography)", "ರಾಜ್ಯಶಾಸ್ತ್ರ & ಅರ್ಥಶಾಸ್ತ್ರ"]
+            },
+            science_math: {
+                title: "ವಿಜ್ಞಾನ ಮತ್ತು ಗಣಿತ",
+                subs: ["ಭೌತ & ರಸಾಯನಶಾಸ್ತ್ರ", "ಜೀವಶಾಸ್ತ್ರ (Biology)", "ಗಣಿತ ಸೂತ್ರಗಳು & ಟ್ರಿಕ್ಸ್"]
+            },
+            kannada: {
+                title: "ಕನ್ನಡ ಸಾಹಿತ್ಯ & ವ್ಯಾಕರಣ",
+                subs: ["ಕನ್ನಡ ವ್ಯಾಕರಣ ದರ್ಪಣ", "ಕವಿ ಪರಿಚಯ ಮತ್ತು ಕೃತಿಗಳು", "ಕನ್ನಡ ಛಂದಸ್ಸು & ಅಲಂಕಾರ"]
+            },
+            psychology: {
+                title: "ಮನೋವಿಜ್ಞಾನ (Psychology)",
+                subs: ["ಕಲಿಕಾ ಸಿದ್ಧಾಂತಗಳು", "ಮಕ್ಕಳ ವಿಕಾಸ & ಬೋಧನೆ", "ಬುದ್ಧಿಶಕ್ತಿ & ಮಾಪನ"]
+            },
+            english: {
+                title: "ಇಂಗ್ಲಿಷ್ ಭಾಷಾ ಸಂಪನ್ಮೂಲ",
+                subs: ["English Grammar", "English Pedagogy", "Vocabulary & Comprehension"]
+            },
+            current_affairs: {
+                title: "ಪ್ರಚಲಿತ ಘಟನೆಗಳು",
+                subs: ["ಮಾಸಿಕ ಪ್ರಚಲಿತ ಘಟನೆಗಳು", "ರಾಷ್ಟ್ರೀಯ ಪ್ರಶಸ್ತಿಗಳು", "ಕ್ರೀಡೆ & ದಿನಾಚರಣೆಗಳು"]
+            },
+            gk: {
+                title: "ಸಾಮಾನ್ಯ ಜ್ಞಾನ (GK Booster)",
+                subs: ["ಕರ್ನಾಟಕ ಇತಿಹಾಸ & ಪರಂಪರೆ", "ಭಾರತದ ಸಂವಿಧಾನ", "ವಿಶ್ವ ಭೂಗೋಳ & ಪರಿಸರ"]
+            },
+            mental_ability: {
+                title: "ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯ (Reasoning)",
+                subs: ["ತಾರ್ಕಿಕ ಸಾಮರ್ಥ್ಯ", "ಸಂಖ್ಯಾ ಸರಣಿಗಳು", "ವೆನ್ ಚಿತ್ರಗಳು & ದಿಕ್ಕುಗಳು"]
+            },
+            old_papers: {
+                title: "ಹಳೆಯ ಪ್ರಶ್ನೆಪತ್ರಿಕೆಗಳು",
+                subs: ["GPTR Question Papers", "KARTET Papers", "HSTR Model Papers"]
+            },
+            computer: {
+                title: "ಕಂಪ್ಯೂಟರ್ ಜ್ಞಾನ",
+                subs: ["Basic Computer", "Shortcuts & Internet", "MS Office Q&A"]
             }
-        }
+        };
 
-        // ಎಡಭಾಗದ ಸಬ್-ವಿಷಯ ಕ್ಲಿಕ್ ಮಾಡಿದಾಗ ಮಧ್ಯದ ಸ್ಕ್ರೀನ್ ಕಂಟೆಂಟ್ ಬದಲಾವಣೆ
-        function loadContent(topicName) {
-            document.getElementById('sectionTitle').innerHTML = `<i class="fa-solid fa-book-open-reader" style="color:var(--neon-blue);"></i> ${topicName}`;
-            
+        function renderCards(topic) {
             const container = document.getElementById('resourceContainer');
             container.innerHTML = `
-                <div class="res-card">
-                    <span class="res-type-badge">PDF Note</span>
-                    <h4>${topicName} - ಭಾಗ 1</h4>
-                    <p>ಈ ವಿಷಯದ ಸಂಪೂರ್ಣ ವಿವರವಾದ ಹ್ಯಾಂಡ್‌ರಿಟನ್ ಹಾಗೂ ಪ್ರಿಂಟೆಡ್ ನೋಟ್ಸ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡಿ.</p>
-                    <a href="#" class="btn-action"><i class="fa-solid fa-download"></i> ಡೌನ್‌ಲೋಡ್</a>
+                <div class="res-card rc-pdf">
+                    <span class="res-type-badge badge-pdf"><i class="fa-solid fa-file-pdf"></i> ಇತ್ತೀಚಿನ PDF ನೋಟ್ಸ್</span>
+                    <h4>${topic} - ಸಂಪೂರ್ಣ ಕೈಪಿಡಿ 2026</h4>
+                    <p>ಇತ್ತೀಚಿನ ಪಠ್ಯಕ್ರಮಕ್ಕೆ ಅನುಗುಣವಾಗಿ ತಯಾರಿಸಲಾದ ಸಮಗ್ರ ಹ್ಯಾಂಡ್‌ರಿಟನ್ ಹಾಗೂ ಪ್ರಿಂಟೆಡ್ ನೋಟ್ಸ್.</p>
+                    <a href="#" class="btn-action btn-pdf"><i class="fa-solid fa-download"></i> PDF ಡೌನ್‌ಲೋಡ್</a>
                 </div>
-                <div class="res-card">
-                    <span class="res-type-badge" style="color:#ffb703; border-color:rgba(255,183,3,0.3);">Smart Video</span>
-                    <h4>${topicName} - ಆನ್‌ಲೈನ್ ಕ್ಲಾಸ್</h4>
-                    <p>ಪರೀಕ್ಷಾ ದೃಷ್ಟಿಕೋನದಿಂದ ಮುಖ್ಯವಾದ ಪ್ರಮುಖ ಅಂಶಗಳ ವಿವರಣಾತ್ಮಕ ವೀಡಿಯೊ ಉಪನ್ಯಾಸ.</p>
-                    <a href="#" class="btn-action" style="background:linear-gradient(135deg, #ffb703, #fb8500); color:#000;"><i class="fa-solid fa-play"></i> ವೀಕ್ಷಿಸಿ</a>
+
+                <div class="res-card rc-video">
+                    <span class="res-type-badge badge-video"><i class="fa-solid fa-circle-play"></i> AI ವೀಡಿಯೊ ಕ್ಲಾಸ್</span>
+                    <h4>${topic} - ಸ್ಮಾರ್ಟ್ ವಿವರಣಾತ್ಮಕ ಪಾಠ</h4>
+                    <p>ಪರೀಕ್ಷಾ ದೃಷ್ಟಿಕೋನದ ಪ್ರಮುಖ ಪರಿಕಲ್ಪನೆಗಳನ್ನು ಸುಲಭವಾಗಿ ಅರ್ಥೈಸುವ ದೃಶ್ಯಾವಳಿಗಳ ವೀಡಿಯೊ.</p>
+                    <a href="#" class="btn-action btn-video"><i class="fa-solid fa-play"></i> ವೀಕ್ಷಿಸಿ</a>
                 </div>
-                <div class="res-card">
-                    <span class="res-type-badge" style="color:#38ef7d; border-color:rgba(56,239,125,0.3);">Mock Test</span>
-                    <h4>${topicName} - ಆನ್‌ಲೈನ್ ಟೆಸ್ಟ್</h4>
-                    <p>ನಿಮ್ಮ ಸ್ವಯಂ ಮೌಲ್ಯಮಾಪನಕ್ಕಾಗಿ ತಯಾರಿಸಲಾದ 25 ಅಂಕಗಳ ಮಾದರಿ ಪರೀಕ್ಷೆ.</p>
-                    <a href="#" class="btn-action" style="background:linear-gradient(135deg, #11998e, #38ef7d); color:#000;"><i class="fa-solid fa-pen-nib"></i> ಟೆಸ್ಟ್ ಆರಂಭಿಸಿ</a>
+
+                <div class="res-card rc-test">
+                    <span class="res-type-badge badge-test"><i class="fa-solid fa-pen-to-square"></i> ಲೈವ್ ಮಾದರಿ ಟೆಸ್ಟ್</span>
+                    <h4>${topic} - ಟಾಪ್ 50 ಪ್ರಶ್ನೋತ್ತರಗಳು</h4>
+                    <p>ನಿಮ್ಮ ನೈಜ ಸಾಮರ್ಥ್ಯ ಮತ್ತು ಸಿದ್ಧತೆಯನ್ನು ಪರೀಕ್ಷಿಸಲು 50 ಅಂಕಗಳ ಮಾದರಿ ಆನ್‌ಲೈನ್ ಟೆಸ್ಟ್.</p>
+                    <a href="#" class="btn-action btn-test"><i class="fa-solid fa-pen-nib"></i> ಟೆಸ್ಟ್ ಆರಂಭಿಸಿ</a>
+                </div>
+
+                <div class="res-card rc-hstr">
+                    <span class="res-type-badge badge-hstr"><i class="fa-solid fa-bullhorn"></i> HSTR / GPSTR ಸ್ಪೆಷಲ್</span>
+                    <h4>${topic} - ಪ್ರಶ್ನೋತ್ತರಗಳ ವಿಶ್ಲೇಷಣೆ</h4>
+                    <p>ಕಳೆದ ವರ್ಷಗಳ ಪರೀಕ್ಷೆಗಳಲ್ಲಿ ಕೇಳಲಾದ ಪ್ರಮುಖ ಪ್ರಶ್ನೋತ್ತರಗಳ ಸಮಗ್ರ ವಿಶ್ಲೇಷಣಾ ದಾಖಲೆ.</p>
+                    <a href="#" class="btn-action btn-hstr"><i class="fa-solid fa-file-lines"></i> ಕೀ-ಉತ್ತರ ವೀಕ್ಷಿಸಿ</a>
                 </div>
             `;
         }
+
+        // 🔥 SMART BOUNDARY CALCULATION 🔥
+        function openDirectBranch(key, headerEl, event) {
+            event.stopPropagation();
+            
+            const popup = document.getElementById('globalTreePopup');
+            const nodesContainer = document.getElementById('globalBranchNodes');
+            const data = categoryData[key];
+
+            if (headerEl.classList.contains('active-item') && popup.classList.contains('open')) {
+                popup.classList.remove('open');
+                headerEl.classList.remove('active-item');
+                return;
+            }
+
+            document.querySelectorAll('.category-header').forEach(h => h.classList.remove('active-item'));
+            headerEl.classList.add('active-item');
+
+            const rect = headerEl.getBoundingClientRect();
+
+            const colorClasses = ['bn-1', 'bn-2', 'bn-3'];
+            let html = '';
+            data.subs.forEach((sub, i) => {
+                const color = colorClasses[i % colorClasses.length];
+                html += `<div class="branch-node ${color}" onclick="loadSubContent('${sub}', event)"><i class="fa-solid fa-folder"></i> ${sub}</div>`;
+            });
+            nodesContainer.innerHTML = html;
+
+            const popupHeight = 160; 
+            let targetTop = rect.top + (rect.height / 2) - (popupHeight / 2);
+
+            if (targetTop + popupHeight > window.innerHeight - 20) {
+                targetTop = window.innerHeight - popupHeight - 20;
+            }
+            if (targetTop < 10) {
+                targetTop = 10;
+            }
+
+            popup.style.top = targetTop + 'px';
+            popup.style.left = (rect.right + 2) + 'px';
+            popup.classList.add('open');
+
+            document.getElementById('sectionTitle').innerHTML = `<i class="fa-solid fa-atom" style="color:var(--neon-blue);"></i> ${data.title}`;
+            renderCards(data.subs[0]);
+        }
+
+        function loadSubContent(subName, event) {
+            event.stopPropagation();
+            document.getElementById('sectionTitle').innerHTML = `<i class="fa-solid fa-atom" style="color:var(--neon-blue);"></i> ${subName}`;
+            renderCards(subName);
+        }
+
+        function renderRecentUploads(title) {
+            document.getElementById('sectionTitle').innerHTML = `<i class="fa-solid fa-atom" style="color:var(--neon-blue);"></i> ${title}`;
+            renderCards(title);
+        }
+
+        function toggleDropdown(event) {
+            event.stopPropagation();
+            document.getElementById('recruitmentDropdown').classList.toggle('show');
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.closest('.category-card') && !event.target.closest('#globalTreePopup')) {
+                document.getElementById('globalTreePopup').classList.remove('open');
+                document.querySelectorAll('.category-header').forEach(h => h.classList.remove('active-item'));
+            }
+            if (!event.target.closest('.dropdown-container')) {
+                const dropdown = document.getElementById('recruitmentDropdown');
+                if (dropdown && dropdown.classList.contains('show')) dropdown.classList.remove('show');
+            }
+        };
+
+        window.onload = function() {
+            renderCards('ಸಮಾಜ ವಿಜ್ಞಾನ: ಇತಿಹಾಸ');
+        };
     </script>
 </body>
 </html>
