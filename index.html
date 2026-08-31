@@ -129,7 +129,7 @@
         .btn-ai { background: linear-gradient(135deg, #f7971e, #ffd200); color: #221300; }
         .btn-about { background: linear-gradient(135deg, #8A2387, #E94057); }
 
-        /* 🔥 RECRUITMENT DROPDOWN WITH EXACT LINKS 🔥 */
+        /* RECRUITMENT DROPDOWN */
         .dropdown-container {
             position: relative;
         }
@@ -295,7 +295,7 @@
         .g-9 { background: linear-gradient(135deg, #0575E6, #00F260); }
         .g-10 { background: linear-gradient(135deg, #b224ef, #7579ff); }
 
-        /* 🔥 GLOBAL FIXED POPUP (ಸ್ಕ್ರೀನ್ ಅಂಚನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸರಿಪಡಿಸುವ ವಿನ್ಯಾಸ) 🔥 */
+        /* 🔥 FIXED TREE POPUP 🔥 */
         #globalTreePopup {
             display: none;
             position: fixed;
@@ -342,6 +342,7 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
             position: relative;
             white-space: nowrap;
+            text-decoration: none;
         }
 
         .branch-node::before {
@@ -589,7 +590,7 @@
                 <i class="fa-solid fa-house"></i> ಮುಖಪುಟ
             </a>
 
-            <!-- 🔥 ಶಿಕ್ಷಕರ ನೇಮಕಾತಿ ಪರೀಕ್ಷೆ - ನೇರ ಲಿಂಕ್‌ಗಳು 🔥 -->
+            <!-- ಶಿಕ್ಷಕರ ನೇಮಕಾತಿ ಪರೀಕ್ಷೆ - ಅಧಿಕೃತ ಲಿಂಕ್‌ಗಳು -->
             <div class="dropdown-container">
                 <button class="menu-btn btn-recruitment" onclick="toggleDropdown(event)">
                     <i class="fa-solid fa-chalkboard-user"></i> ಶಿಕ್ಷಕರ ನೇಮಕಾತಿ ಪರೀಕ್ಷೆ <i class="fa-solid fa-chevron-down" style="font-size:0.75rem; margin-left:4px;"></i>
@@ -778,46 +779,87 @@
     </div>
 
     <script>
+        // 🔥 ಎಲ್ಲಾ 10 ಫೋಲ್ಡರ್ & 30 ಸಬ್-ಫೋಲ್ಡರ್‌ಗಳಿಗೆ ನಿಖರವಾದ ಮಾದರಿ HTML ಲಿಂಕ್ ಅಡ್ರೆಸ್‌ಗಳು 🔥
         const categoryData = {
             social: {
                 title: "ಸಮಾಜ ವಿಜ್ಞಾನ",
-                subs: ["ಇತಿಹಾಸ (History)", "ಭೂಗೋಳಶಾಸ್ತ್ರ (Geography)", "ರಾಜ್ಯಶಾಸ್ತ್ರ & ಅರ್ಥಶಾಸ್ತ್ರ"]
+                subs: [
+                    { name: "ಇತಿಹಾಸ (History)", link: "social/history.html" },
+                    { name: "ಭೂಗೋಳಶಾಸ್ತ್ರ (Geography)", link: "social/geography.html" },
+                    { name: "ರಾಜ್ಯಶಾಸ್ತ್ರ & ಅರ್ಥಶಾಸ್ತ್ರ", link: "social/polity.html" }
+                ]
             },
             science_math: {
                 title: "ವಿಜ್ಞಾನ ಮತ್ತು ಗಣಿತ",
-                subs: ["ಭೌತ & ರಸಾಯನಶಾಸ್ತ್ರ", "ಜೀವಶಾಸ್ತ್ರ (Biology)", "ಗಣಿತ ಸೂತ್ರಗಳು & ಟ್ರಿಕ್ಸ್"]
+                subs: [
+                    { name: "ಭೌತ & ರಸಾಯನಶಾಸ್ತ್ರ", link: "science/physics_chem.html" },
+                    { name: "ಜೀವಶಾಸ್ತ್ರ (Biology)", link: "science/biology.html" },
+                    { name: "ಗಣಿತ ಸೂತ್ರಗಳು & ಟ್ರಿಕ್ಸ್", link: "science/maths.html" }
+                ]
             },
             kannada: {
                 title: "ಕನ್ನಡ ಸಾಹಿತ್ಯ & ವ್ಯಾಕರಣ",
-                subs: ["ಕನ್ನಡ ವ್ಯಾಕರಣ ದರ್ಪಣ", "ಕವಿ ಪರಿಚಯ ಮತ್ತು ಕೃತಿಗಳು", "ಕನ್ನಡ ಛಂದಸ್ಸು & ಅಲಂಕಾರ"]
+                subs: [
+                    { name: "ಕನ್ನಡ ವ್ಯಾಕರಣ ದರ್ಪಣ", link: "kannadagrammar/kannadagrammar.html" },
+                    { name: "ಕವಿ ಪರಿಚಯ ಮತ್ತು ಕೃತಿಗಳು", link: "kannada/poets.html" },
+                    { name: "ಕನ್ನಡ ಛಂದಸ್ಸು & ಅಲಂಕಾರ", link: "kannada/chandassu.html" }
+                ]
             },
             psychology: {
                 title: "ಮನೋವಿಜ್ಞಾನ (Psychology)",
-                subs: ["ಕಲಿಕಾ ಸಿದ್ಧಾಂತಗಳು", "ಮಕ್ಕಳ ವಿಕಾಸ & ಬೋಧನೆ", "ಬುದ್ಧಿಶಕ್ತಿ & ಮಾಪನ"]
+                subs: [
+                    { name: "ಕಲಿಕಾ ಸಿದ್ಧಾಂತಗಳು", link: "psychology/theories.html" },
+                    { name: "ಮಕ್ಕಳ ವಿಕಾಸ & ಬೋಧನೆ", link: "psychology/pedagogy.html" },
+                    { name: "ಬುದ್ಧಿಶಕ್ತಿ & ಮಾಪನ", link: "psychology/intelligence.html" }
+                ]
             },
             english: {
                 title: "ಇಂಗ್ಲಿಷ್ ಭಾಷಾ ಸಂಪನ್ಮೂಲ",
-                subs: ["English Grammar", "English Pedagogy", "Vocabulary & Comprehension"]
+                subs: [
+                    { name: "English Grammar", link: "english/grammar.html" },
+                    { name: "English Pedagogy", link: "english/pedagogy.html" },
+                    { name: "Vocabulary & Comprehension", link: "english/vocab.html" }
+                ]
             },
             current_affairs: {
                 title: "ಪ್ರಚಲಿತ ಘಟನೆಗಳು",
-                subs: ["ಮಾಸಿಕ ಪ್ರಚಲಿತ ಘಟನೆಗಳು", "ರಾಷ್ಟ್ರೀಯ ಪ್ರಶಸ್ತಿಗಳು", "ಕ್ರೀಡೆ & ದಿನಾಚರಣೆಗಳು"]
+                subs: [
+                    { name: "ಮಾಸಿಕ ಪ್ರಚಲಿತ ಘಟನೆಗಳು", link: "currentaffairs/monthly.html" },
+                    { name: "ರಾಷ್ಟ್ರೀಯ ಪ್ರಶಸ್ತಿಗಳು", link: "currentaffairs/awards.html" },
+                    { name: "ಕ್ರೀಡೆ & ದಿನಾಚರಣೆಗಳು", link: "currentaffairs/sports.html" }
+                ]
             },
             gk: {
                 title: "ಸಾಮಾನ್ಯ ಜ್ಞಾನ (GK Booster)",
-                subs: ["ಕರ್ನಾಟಕ ಇತಿಹಾಸ & ಪರಂಪರೆ", "ಭಾರತದ ಸಂವಿಧಾನ", "ವಿಶ್ವ ಭೂಗೋಳ & ಪರಿಸರ"]
+                subs: [
+                    { name: "ಕರ್ನಾಟಕ ಇತಿಹಾಸ & ಪರಂಪರೆ", link: "gk/karnataka_history.html" },
+                    { name: "ಭಾರತದ ಸಂವಿಧಾನ", link: "gk/constitution.html" },
+                    { name: "ವಿಶ್ವ ಭೂಗೋಳ & ಪರಿಸರ", link: "gk/world_geography.html" }
+                ]
             },
             mental_ability: {
                 title: "ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯ (Reasoning)",
-                subs: ["ತಾರ್ಕಿಕ ಸಾಮರ್ಥ್ಯ", "ಸಂಖ್ಯಾ ಸರಣಿಗಳು", "ವೆನ್ ಚಿತ್ರಗಳು & ದಿಕ್ಕುಗಳು"]
+                subs: [
+                    { name: "ತಾರ್ಕಿಕ ಸಾಮರ್ಥ್ಯ", link: "mentalability/reasoning.html" },
+                    { name: "ಸಂಖ್ಯಾ ಸರಣಿಗಳು", link: "mentalability/number_series.html" },
+                    { name: "ವೆನ್ ಚಿತ್ರಗಳು & ದಿಕ್ಕುಗಳು", link: "mentalability/venn.html" }
+                ]
             },
             old_papers: {
                 title: "ಹಳೆಯ ಪ್ರಶ್ನೆಪತ್ರಿಕೆಗಳು",
-                subs: ["GPTR Question Papers", "KARTET Papers", "HSTR Model Papers"]
+                subs: [
+                    { name: "GPTR Question Papers", link: "oldpapers/gptr_papers.html" },
+                    { name: "KARTET Papers", link: "oldpapers/tet_papers.html" },
+                    { name: "HSTR Model Papers", link: "oldpapers/hstr_papers.html" }
+                ]
             },
             computer: {
                 title: "ಕಂಪ್ಯೂಟರ್ ಜ್ಞಾನ",
-                subs: ["Basic Computer", "Shortcuts & Internet", "MS Office Q&A"]
+                subs: [
+                    { name: "Basic Computer", link: "computer/basic_computer.html" },
+                    { name: "Shortcuts & Internet", link: "computer/shortcuts.html" },
+                    { name: "MS Office Q&A", link: "computer/msoffice.html" }
+                ]
             }
         };
 
@@ -854,7 +896,7 @@
             `;
         }
 
-        // 🔥 SMART BOUNDARY CALCULATION 🔥
+        // 🔥 SMART TREE BRANCH WITH AUTO BOUNDARY & DIRECT LINK CLICK 🔥
         function openDirectBranch(key, headerEl, event) {
             event.stopPropagation();
             
@@ -877,7 +919,8 @@
             let html = '';
             data.subs.forEach((sub, i) => {
                 const color = colorClasses[i % colorClasses.length];
-                html += `<div class="branch-node ${color}" onclick="loadSubContent('${sub}', event)"><i class="fa-solid fa-folder"></i> ${sub}</div>`;
+                // ನೇರ ಲಿಂಕ್ ಅಟ್ಯಾಚ್ಮೆಂಟ್
+                html += `<a href="${sub.link}" target="_blank" class="branch-node ${color}"><i class="fa-solid fa-folder-open"></i> ${sub.name} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem; margin-left:4px;"></i></a>`;
             });
             nodesContainer.innerHTML = html;
 
@@ -896,13 +939,7 @@
             popup.classList.add('open');
 
             document.getElementById('sectionTitle').innerHTML = `<i class="fa-solid fa-atom" style="color:var(--neon-blue);"></i> ${data.title}`;
-            renderCards(data.subs[0]);
-        }
-
-        function loadSubContent(subName, event) {
-            event.stopPropagation();
-            document.getElementById('sectionTitle').innerHTML = `<i class="fa-solid fa-atom" style="color:var(--neon-blue);"></i> ${subName}`;
-            renderCards(subName);
+            renderCards(data.subs[0].name);
         }
 
         function renderRecentUploads(title) {
